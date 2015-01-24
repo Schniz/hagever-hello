@@ -5,7 +5,7 @@ var app = express();
 var server = require('http').createServer(app);
 
 app.get("/", function(req, res) {
-	res.send("<h1>Gal Hagever. ve gam Kfir.</h1>");
+	res.send("<title>Hagever.</title><h1>Gal Hagever. ve gam Kfir.</h1>");
 });
 
 server.listen(port, function() {
