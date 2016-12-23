@@ -1,14 +1,17 @@
-var port = process.env.PORT || 5000;
+const http = require('http');
+const port = process.env.PORT || 5000;
 
-var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
+const redirectTo = url => (req, res) => {
+  console.log(`got request`, req.headers);
+  res.writeHead(302, { Location: url });
+  res.end();
+};
 
-app.get("/", function(req, res) {
-	res.send("<title>Hagever.</title><h1>Gal Hagever. ve gam Kfir.</h1>");
-});
+const server = http.createServer(
+  redirectTo('https://gal.hagever.com/')
+);
 
-server.listen(port, function() {
-	var address = server.address();
-	console.log("listening on " + address.address + ":" + address.port);
+server.listen(port, () => {
+	const { address, port } = server.address();
+	console.log(`listening on ${address}:${port}`);
 });

@@ -8,7 +8,5 @@
   },
   "author": "Gal Schlezinger",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.11.1"
-  }
+  "dependencies": {}
 }
